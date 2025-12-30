@@ -8,35 +8,54 @@ export default function Home() {
   return (
     <div className="min-h-screen px-6 py-6 max-w-md mx-auto">
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <div>
-          <h1 className="text-2xl font-bold">Good Evening 👋</h1>
-          <p className="text-gray-600 text-sm">
-            Let’s decide what to cook today
-          </p>
-        </div>
+      <div className="mb-8">
+        <div className="flex justify-between items-center">
+          <div>
+            <h1 className="text-2xl font-bold">Good Evening 👋</h1>
+            <p className="text-gray-600 text-sm mt-1">
+              Let’s cook something delicious today
+            </p>
+          </div>
 
-        <button
-          onClick={() => navigate("/profile")}
-          className="w-10 h-10 rounded-full bg-gray-300"
-        >
-          👤
-        </button>
+          <button
+            onClick={() => navigate("/profile")}
+            className="
+              w-10 h-10 rounded-full
+              bg-gray-200
+              flex items-center justify-center
+              active:scale-95 transition
+            "
+          >
+            👤
+          </button>
+        </div>
       </div>
 
-      {/* Scan Ingredients */}
-      <div className="mb-8">
+      {/* Primary Action */}
+      <div className="mb-10">
         <PrimaryButton
           label="Scan Ingredients 📷"
           onClick={() => navigate("/scan")}
         />
+        <p className="text-xs text-gray-500 mt-2 text-center">
+          Scan what’s available in your kitchen
+        </p>
       </div>
 
       {/* AI Recommendations */}
       <div>
-        <h2 className="text-lg font-semibold mb-4">
-          AI Suggestions For You 🤖
-        </h2>
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-lg font-semibold">
+            AI Suggestions 🤖
+          </h2>
+
+          <button
+            onClick={() => navigate("/recipes")}
+            className="text-sm text-gray-600 underline"
+          >
+            View all
+          </button>
+        </div>
 
         <div className="space-y-4">
           <RecipeCard title="Vegetable Stir Fry" time={20} match={92} />
